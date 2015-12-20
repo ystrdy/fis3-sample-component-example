@@ -1,0 +1,41 @@
+.nav_wrap{
+	height: 49px;
+	line-height: 49px;
+	border-bottom: solid 1px $cblue2;
+	background: #f3f6f8;
+	@extend %tac;
+	@extend %pr;
+}
+
+.nav{
+	@extend %prywm;
+	height: 100%;
+	@extend %pr;
+	a{
+		padding: 0 21px;
+		@extend %fl;
+		@extend %f16;
+		@extend %cblack1;
+		&:hover{
+			@extend %cblack1;
+			@extend %tdn;
+		}
+	}
+	.cur{
+		&, &:hover{
+			@extend %cblue2;
+		}
+	}
+}
+
+.n_sharp{
+	width: 14px;
+	height: 8px;
+	@extend %pa;
+	background: url(./sharp.png?__sprite) no-repeat center;
+	bottom: -1px;
+	left: 30px;
+	_font-size: 0;
+	_line-height: 0;
+	_bottom: -2px;
+}

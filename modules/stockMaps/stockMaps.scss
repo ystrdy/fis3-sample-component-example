@@ -1,0 +1,25 @@
+.stock_maps{
+	height: 212px;
+	@extend %oh;
+}
+
+.sm_hd{
+	@include Tabs(25%);
+}
+
+.smb_meta{
+	height: 40px;
+	line-height: 40px;
+	@extend %oh;
+	margin-left: 10px;
+	@extend %f12;
+	span{
+		margin: 0 8px;
+		@extend %fwb;
+	}
+}
+
+.smb_draw{
+	height: 140px;
+	@extend %oh;
+}

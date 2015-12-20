@@ -1,0 +1,127 @@
+@import "/modules/reset/reset";
+@import "/modules/define/define";
+
+%pryw{
+	width : 1000px;
+}
+
+%prywm{
+	@extend %pryw;
+	@extend %ma;
+}
+
+$cblack1	: #313742;
+%cblack1{
+	color: $cblack1;
+}
+$cblue1		: #0075CF;
+%cblue1{
+	color: $cblue1;
+}
+$cblue2 	: #0976cc;
+%cblue2{
+	color: $cblue2;
+}
+
+$cred : #ee371f;
+%cred{
+	color: $cred;
+}
+$cgreen : #0d860d;
+%cgreen{
+	color: #0d860d;
+}
+.rise{
+	&, a, a:hover{
+		@extend %cred;
+	}
+}
+.fall{
+	&, a, a:hover{
+		@extend %cgreen;
+	}
+}
+$cgrey1 : #f3f6f8;
+$cgrey2 : #fafafa;
+
+.tabs{
+	@extend %oh;
+	@extend %f12;
+	background: $cgrey1;
+	a{
+		@extend %fl;
+		@extend %cblack1;
+		@extend %tac;
+		border-top: solid 1px transparent;
+		@extend %oh;
+		&:hover{
+			@extend %cblack;
+			@extend %tdn;
+		}
+	}
+	.cur{
+		border-top-color: $cblue2;
+		@extend %bgwhite;
+		&, &:hover{
+			@extend %cblue2;
+		}
+	}
+}
+
+@mixin VerticalMiddle($width, $height, $leftAlign:true){
+	@extend %pa;
+	width: $width;
+	height: $height;
+	top: 50%;
+	@if $leftAlign {
+		left: 0;
+	} @else {
+		right: 0;
+	}
+	margin-top: -$width / 2;
+	z-index: 2;
+	_font-size: 0;
+	_line-height: 0;
+}
+
+@mixin Tabs($width, $height:36px){
+	@extend %oh;
+	@extend %f12;
+	background: $cgrey1;
+	height: $height;
+	line-height: $height;
+	a{
+		width: $width;
+		@if unit($width) == '%' {
+			*width: $width - 0.1%;
+		}
+		@if unit($width) == 'px' {
+			*width: $width - 1px;
+		}
+		height: $height - 1;
+		@extend %fl;
+		@extend %cblack1;
+		@extend %tac;
+		border-top: solid 1px $cgrey1;
+		@extend %oh;
+		&:hover{
+			@extend %cblack1;
+			@extend %tdn;
+		}
+	}
+	.cur{
+		border-top-color: $cblue2;
+		@extend %bgwhite;
+		&, &:hover{
+			@extend %cblue2;
+		}
+	}
+}
+
+.tit1{
+	height: 36px;
+	line-height: 36px;
+	@extend %oh;
+	@extend %f16;
+	@extend %cblack1;
+}

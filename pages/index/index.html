@@ -1,0 +1,27 @@
+{% extends 'modules/layout/layout.html' %}
+
+{% block style %}
+<link rel="stylesheet" href="./index.scss">
+{% endblock %}
+
+{% block content %}
+<div class="first_screen">
+	<div class="main">
+		<div class="m_hd">
+			{% include 'modules/focusSlider/focusSlider.html' %}
+			<ul class="news_list"></ul>
+		</div>
+		<div class="m_bd"></div>
+	</div>
+	<div class="aside">
+		{% include 'modules/stockMaps/stockMaps.html' %}
+		{% include 'modules/selfStocks/selfStocks.html' %}
+		{% include 'modules/globalMarket/globalMarket.html' %}
+	</div>
+</div>
+{% include 'modules/friendLinks/friendLinks.html' %}
+{% endblock %}
+
+{% block script %}
+<script src="./index.js"></script>
+{% endblock %}

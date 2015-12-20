@@ -1,0 +1,52 @@
+.top{
+	height: 30px;
+	line-height: 30px;
+	@extend %oh;
+	@extend %pr;
+	background: $cblack1;
+	a{
+		@extend %cfff;
+		@extend %pr;
+		margin: 0 18px;
+		&:hover{
+			@extend %cfff;
+		}
+		_zoom: 1;
+	}
+	i{
+		width: 2px;
+		height: 13px;
+		background: #babcc0;
+		@extend %pa;
+		top: 50%;
+		margin-top: -6px;
+		_font-size: 0;
+		_line-height: 0;
+	}
+}
+
+.top_inner{
+	@extend %prywm;
+	@extend %oh;
+	@extend %pr;
+}
+
+.top_l{
+	@extend %fl;
+	margin-left: -18px;
+	_margin-left: 0;
+	@extend %oh;
+	i{
+		left: -18px;
+	}
+}
+
+.top_r{
+	@extend %fr;
+	margin-right: -18px;
+	_margin-right: -18px * 2;
+	@extend %oh;
+	i{
+		right: -18px;
+	}
+}

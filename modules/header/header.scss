@@ -1,0 +1,19 @@
+@import "/modules/searchbox/searchbox";
+
+.header{
+	@extend %prywm;
+	height: 80px;
+	@extend %pr;
+}
+
+.logo{
+	&, a{
+		width: 205px;
+		height: 42px;
+		@extend %fl;
+	}
+	background: url(./logo.jpg) no-repeat center;
+	@extend %oh;
+	@extend %ti9999;
+	margin-top: 19px;
+}

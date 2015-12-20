@@ -1,0 +1,41 @@
+@charset "utf-8";
+/*------------------
+Created:2015/12/14
+author:xuxufei
+email:xuxufei@2144.cn
+website:
+-----------------*/
+
+@import "/lib/common";
+@import "/modules/top/top";
+@import "/modules/header/header";
+@import "/modules/nav/nav";
+@import "/modules/realInformation/realInformation";
+@import "/modules/stockMaps/stockMaps";
+@import "/modules/selfStocks/selfStocks";
+@import "/modules/globalMarket/globalMarket";
+@import "/modules/focusSlider/focusSlider";
+@import "/modules/friendLinks/friendLinks";
+@import "/modules/footer/footer";
+
+.first_screen{
+	margin-top: 10px;
+	@extend %prywm;
+	@extend %clearfix;
+}
+
+.main{
+	width: 720px;
+	@extend %fr;
+}
+
+.aside{
+	@extend %fl;
+	width: 250px;
+}
+
+.m_hd{
+	height: 212px;
+	@extend %oh;
+	@extend %pr;
+}

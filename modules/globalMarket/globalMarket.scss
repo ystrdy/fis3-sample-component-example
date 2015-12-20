@@ -1,0 +1,65 @@
+@charset "utf-8";
+/*------------------
+Created:2015/12/16
+author:xuxufei
+email:xuxufei@2144.cn
+dependencies:
+	common	: 	mixin Tabs, class tit1
+-----------------*/
+
+.global_market{
+	margin-top: 18px;
+	height: 445px;
+	@extend %oh;
+}
+
+.gm_head{
+	@include Tabs(33.33%);
+}
+
+.gm_list{
+	@extend %f12;
+	li{
+		height: 42px;
+		line-height: 42px;
+		@extend %oh;
+		padding: 0 10px;
+		@extend %cp;
+		&:nth-child(2n){
+			background: $cgrey2;
+		}
+	}
+	span{
+		@extend %fl;
+		@extend %oh;
+		_background: transparent;
+	}
+	img{
+		@extend %db;
+		width: 235px;
+		height: 117px;
+	}
+	.cur{
+		height: 163px;
+	}
+	.hasImage{
+		.gml_name{
+			@extend %cblue1;
+		}
+	}
+}
+
+.gml_name{
+	width: 108px;
+	@extend %c3;
+}
+
+.gml_current{
+	width: 61px;
+	@extend %tar;
+}
+
+.gml_percent{
+	width: 61px;
+	@extend %tar;
+}

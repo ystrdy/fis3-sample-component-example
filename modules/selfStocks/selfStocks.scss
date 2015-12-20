@@ -1,0 +1,90 @@
+@charset "utf-8";
+/*------------------
+Created:2015/12/16
+author:xuxufei
+email:xuxufei@2144.cn
+dependencies:
+	common	: 	mixin Tabs
+-----------------*/
+
+.self_stocks{
+	@extend %oh;
+	margin-top: 10px;
+	height: 372px;
+}
+
+.ss_head{
+	@include Tabs(50%);
+}
+
+.ss_list{
+	height: 300px;
+	@extend %oh;
+	@extend %pr;
+	@extend %f12;
+	li{
+		height: 30px;
+		line-height: 30px;
+		@extend %oh;
+		@extend %pr;
+		&:nth-child(2n){
+			background: $cgrey2;
+		}
+	}
+	a{
+		@extend %db;
+		height: 100%;
+		padding: 0 29px 0 10px;
+		&:hover{
+			@extend %tdn;
+			background: $cgrey1;
+		}
+	}
+	strong{
+		@extend %fwn;
+		@extend %c3;
+		@extend %fl;
+		width: 60px;
+		@extend %oh;
+	}
+	span{
+		@extend %fl;
+		width: 60px;
+		@extend %tar;
+		margin-left: 15px;
+		@extend %oh;
+	}
+	i{
+		@include VerticalMiddle(9px, 9px, false);
+		right: 10px;
+		@extend %cp;
+	}
+	.ssl_sep{
+		@extend %tac;
+		@extend %c9;
+	}
+	.ssl_btn_add{
+		background: url(./add.png?__sprite) no-repeat center;	
+	}
+	.ssl_btn_del{
+		background: url(./del.png?__sprite) no-repeat center;	
+	}
+}
+
+.ss_manage{
+	height: 36px;
+	line-height: 36px;
+	@extend %oh;
+	a{
+		@extend %fr;
+		padding-left: 16px;
+		@extend %pr;
+		&, &:hover{
+			@extend %c9;
+		}
+	}
+	i{
+		@include VerticalMiddle(12px, 12px);
+		background: url(./manage.png?__sprite) no-repeat center;
+	}
+}

@@ -1,0 +1,78 @@
+.searchbox{
+	width: 291px;
+	height: 32px;
+	border: solid 1px #ddd;
+	@extend %fr;
+	margin-top: 23px;
+	@extend %pr;
+	i{
+		@extend %fl;
+		width: 18px;
+		height: 18px;
+		margin: 7px 8px 0;
+		background: url(./look.png?__sprite) no-repeat center;
+	}
+}
+
+.sb_input{
+	@extend %f14;
+	border: 0;
+	height: 19px;
+	line-height: 19px;
+	margin-top: 7px;
+	width: 186px;
+}
+
+.sb_submit{
+	width: 72px;
+	height: 34px;
+	background: $cblue1;
+	@extend %cfff;
+	@extend %f14;
+	right: -1px;
+	top: -1px;
+	border: 0;
+	@extend %pa;
+	@extend %cp;
+}
+
+.droplist{
+	@extend %bgwhite;
+	@extend %pa;
+	left: -1px;
+	top: 33px;
+	border: solid 1px #ddd;
+	width: 100%;
+	height: 273px;
+	@extend %oh;
+	dt{
+		height: 32px;
+		line-height: 32px;
+		@extend %oh;
+		background: #f9f9f9;
+		border-bottom: solid 1px #ddd;
+	}
+	dd{
+		height: 24px;
+		line-height: 24px;
+		@extend %oh;
+		*margin-left: -40px;
+	}
+	a:hover{
+		@extend %tdn;
+	}
+	span{
+		@extend %fl;
+		width: 33.3%;
+		@extend %tac;
+		@extend %c9;
+		width: 33.25%;
+		@extend %cp;
+	}
+	.cur{
+		background: #fff9dd;
+		span{
+			@extend %c3;
+		}
+	}
+}

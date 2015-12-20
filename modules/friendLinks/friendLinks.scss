@@ -1,0 +1,33 @@
+.friendLinks_wrap{
+	background: $cgrey1;
+	margin-top: 50px;
+	@extend %pr;
+}
+
+.friendLinks{
+	@extend %prywm;
+	padding: 16px 0 45px;
+	h2{
+		@extend %f20;
+		@extend %cblack1;
+		@extend %fwn;
+		height: 48px;
+		line-height: 48px;
+		@extend %oh;
+	}
+	ul{
+		@extend %clearfix;
+	}
+	li{
+		@extend %fl;
+		width: 125px;
+		@extend %oh;
+		@extend %f12;
+		line-height: 2;
+	}
+	a{
+		&, &:hover{
+			@extend %cblack1;
+		}
+	}
+}

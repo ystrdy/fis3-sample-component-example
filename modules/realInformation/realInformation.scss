@@ -1,0 +1,45 @@
+.realInformation{
+	@extend %prywm;
+	@extend %mt10;
+	height: 40px;
+	line-height: 40px;
+	@extend %oh;
+	background: #fafafa;
+	@extend %f12;
+	h2{
+		@extend %fl;
+		@extend %fwn;
+		margin: 0 20px 0 15px;
+		@extend %pr;
+		padding-right: 24px;
+		@extend %cblack1;
+		i{
+			@extend %pa;
+			right: 0;
+			top: 50%;
+			margin-top: -8px;
+			z-index: 2;
+			width: 16px;
+			height: 16px;
+			background: url(./speaker.png?__sprite) no-repeat center;
+		}
+		_display: inline;
+	}
+	ul{
+		@extend %fl;
+		margin-right: -50px;
+		_position: relative;
+	}
+	li{
+		@extend %fl;
+		margin-right: 23px;
+	}
+	a{
+		&, &:hover{
+			@extend %cblack1;
+		}
+		i{
+			margin: 0 2px 0 4px;
+		}
+	}
+}

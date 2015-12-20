@@ -1,0 +1,19 @@
+{
+  "name": "fis3-sample-component-example",
+  "version": "0.0.1",
+  "description": "a sample fis3 component example",
+  "repository": {
+    "type": "https",
+    "url": "https://github.com/ystrdy/fis3-sample-component-example.git"
+  },
+  "author": {
+    "name": "ystrdy",
+    "email": "xu1930@qq.com"
+  },
+  "dependencies": {
+    "swig": "~1.4",
+    "fis3-hook-commonjs": "~0.1",
+    "fis-parser-node-sass": "~0.1"
+  },
+  "license": "GPL"
+}

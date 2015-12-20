@@ -1,0 +1,49 @@
+.footer_wrap{
+	background: $cblack1;
+	@extend %pr;
+	padding: 10px 0 60px;
+}
+
+.footer{
+	@extend %prywm;
+	@extend %pr;
+	@extend %oh;
+}
+
+.f_links{
+	height: 52px;
+	line-height: 52px;
+	margin-left: -23px;
+	@extend %oh;
+	@extend %pr;
+	li{
+		@extend %fl;
+		padding: 0 23px;
+		@extend %pr;
+	}
+	a{
+		&, &:hover{
+			color: #c8cace;
+		}
+	}
+	i{
+		@extend %pa;
+		width: 1px;
+		height: 12px;
+		left: 0;
+		top: 50%;
+		margin-top: -6px;
+		z-index: 2;
+		background: #3f4754;
+		_font-size: 0;
+		_line-height: 0;
+	}
+}
+
+.f_copy{
+    border-top: solid 2px #59606c;
+    color: #7e838d;
+    line-height: 20px;
+    @extend %f12;
+    padding-top: 15px;
+}
