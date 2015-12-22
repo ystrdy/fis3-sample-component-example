@@ -2,7 +2,7 @@
 	<div class="nav">
 		{% set items = ['首页','行情','板块','新股','主力','全球','美股','港股','黄金','期货','理财','外汇','自选股']; %}
 		{% for item in items %}
-		<a href="#" {% if loop.first %}class="cur"{% endif %}>{{item}}</a>
+		<a href="#"{% if loop.first %} class="cur"{% endif %}>{{item}}</a>
 		{% endfor %}
 		<i class="n_sharp"></i>
 	</div>

@@ -34,11 +34,11 @@ fis.match('/pages/**/(*).js', {
 });
 
 // 发布image
-fis.match('/pages/**/(*.{png,jpg,gif})', {
-	release : 'images/$1'
+fis.match('/pages/**/(*).{png,jpg,gif}', {
+	release : 'images/$1$2'
 });
-fis.match('/modules/**/(*.{png,jpg,gif})', {
-	release : 'images/$1'
+fis.match('/modules/**/(*).{png,jpg,gif}', {
+	release : 'images/$1$2'
 });
 
 // 标识模块
