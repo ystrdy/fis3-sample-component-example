@@ -1,0 +1,61 @@
+@charset "utf-8";
+/*------------------
+Created:2015/12/23
+author:xuxufei
+email:xuxufei@2144.cn
+website:
+-----------------*/
+
+// 主页中的机会样式文件
+
+.grey_list{
+	@extend %fr;
+	@extend %oh;
+	width: 720px;
+}
+
+.gl_bd{
+	padding: 10px;
+	background: $cgrey1;
+	height: 221px;
+}
+
+.gl_pics{
+	margin: -13px 0 0 0;
+	width: 335px;
+	.ms_pic{
+		margin-top: 13px;
+	}
+	span{
+		padding-right: 0;
+	}
+}
+
+.gl_list{
+	width: 335px;
+	li{
+		margin-bottom: 5px;
+	}
+	h4{
+		@extend %f16;
+		@include SingleLine(24px)
+		&, a{
+			@extend %c3;
+		}
+	}
+	p{
+		@extend %f12;
+		@include SingleLine(28px);
+		&, a{
+			@extend %c6;
+		}
+	}
+}
+
+.gl_left{
+	@extend %fl;
+}
+
+.gl_right{
+	@extend %fr;
+}

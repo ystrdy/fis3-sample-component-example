@@ -1,0 +1,14 @@
+.p_ms_list{
+	@extend %fl;
+	width: 345px;
+	margin-left: 30px;
+	.ms_list{
+		margin: 8px 0 0 0;
+	}
+	.ms_pic{
+		background:$cgrey1;
+		&:hover{
+			background: $cblue2;
+		}
+	}
+}

@@ -1,0 +1,36 @@
+@charset "utf-8";
+/*------------------
+Created:2015/12/24
+author:xuxufei
+email:xuxufei@2144.cn
+website:
+-----------------*/
+
+// 主页中的AH股比价样式文件
+
+.ah_stock_list{
+	@extend %pr;
+	@extend %oh;
+	width: 250px;
+	@extend %fl;
+	dl{
+		@extend %f12;
+		@extend %tac;
+	}
+	dt{
+		@include SingleLine(36px);
+		background: $cgrey1;
+		@extend %c9;
+	}
+	dd{
+		@include SingleLine(30px);
+		&:nth-child(2n+1){
+			background: $cgrey2;
+		}
+	}
+	span, a{
+		width: 25%;
+		@extend %fl;
+		@extend %oh;
+	}
+}

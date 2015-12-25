@@ -1,0 +1,31 @@
+{#
+ # Created:2015/12/24
+ # author:xuxufei
+ # email:xuxufei@2144.cn
+ # description:
+ # 主页中的新股模块模板文件
+ #}
+
+<div class="new_stock_list">
+	<h2 class="tit2">{{title}}<i></i></h2>
+	<dl>
+		<dt>
+			<span>名称</span>
+			<span>申购代码</span>
+			<span>发行价</span>
+			<span>发行量/万股</span>
+			<span>申购日期</span>
+		</dt>
+		{%for item in data%}
+		<dd>
+			<a href="#">
+				<span>读者传媒</span>
+				<span>732999</span>
+				<span>9.77</span>
+				<span>6000</span>
+				<span>暂缓</span>
+			</a>
+		</dd>
+		{%endfor%}
+	</dl>
+</div>

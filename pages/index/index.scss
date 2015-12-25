@@ -14,7 +14,18 @@ website:
 @import "/modules/stockMaps/stockMaps";
 @import "/modules/selfStocks/selfStocks";
 @import "/modules/globalMarket/globalMarket";
-@import "/modules/focusSlider/focusSlider";
+@import "/modules/Slider/Slider";
+@import "/modules/mutilStyleList/mutilStyleList";
+@import "/modules/tabCategorys/tabCategorys";
+@import "/modules/marketList/marketList";
+@import "/modules/greyList/greyList";
+@import "/modules/picMutilStyleList/picMutilStyleList";
+@import "/modules/samplePicList/samplePicList";
+@import "/modules/NewStock/NewStock";
+@import "/modules/AHStock/AHStock";
+@import "/modules/HotSearch/HotSearch";
+@import "/modules/TopList/TopList";
+@import "/modules/ManageMoneyToolbox/ManageMoneyToolbox";
 @import "/modules/friendLinks/friendLinks";
 @import "/modules/footer/footer";
 
@@ -22,6 +33,11 @@ website:
 	margin-top: 10px;
 	@extend %prywm;
 	@extend %clearfix;
+	.ms_list{
+		@extend %fr;
+		margin: -5px 0 0 0;
+		width: 330px;
+	}
 }
 
 .main{
@@ -38,4 +54,82 @@ website:
 	height: 212px;
 	@extend %oh;
 	@extend %pr;
+}
+
+.fs_slider{
+	@include Slider1('fs');
+}
+
+.wrap{
+	@extend %prywm;
+	@extend %clearfix;
+	margin-bottom: 24px;
+}
+
+.row{
+	@extend %clearfix;
+}
+
+.market_list{
+	width: 250px;
+	@extend %fl;
+}
+
+.ra_ad1{
+	margin-top: 46px;
+}
+
+.blk_ad{
+	&, img{
+		width: 250px;
+		height: 305px;
+	}
+	@extend %oh;
+	@extend %fl;
+	margin-top: 10px;
+}
+
+.col250{
+	width: 250px;
+	@extend %fl;
+	@extend %oh;
+	@extend %pr;
+	.blk_ad{
+		&, img{
+			width: 250px;
+			height: 270px;
+		}
+		margin-top: 40px;
+	}
+}
+
+.col750{
+	width: 750px;
+	@extend %fr;
+	@extend %oh;
+	@extend %pr;
+	margin-top: -24px;
+	.row{
+		margin-top: 24px;
+	}
+	.grey_list{
+		margin-top: 28px;
+	}
+}
+
+.hotspot{
+	@extend %oh;
+	@extend .wrap;
+	padding-top: 12px;
+	.tit1{
+		@extend %f20;
+	}
+}
+
+.hs_slider{	
+	@include Slider2('hs');
+}
+
+.ra_ad2{
+	margin-top: 50px;
 }

@@ -1,0 +1,68 @@
+{#
+ # Created:2015/12/24
+ # author:xuxufei
+ # email:xuxufei@2144.cn
+ # description:
+ # 主页中的板块行情文件
+ #}
+
+<div class="market_list">
+	<h2 class="tit1">{{ title }}</h2>
+	<div class="ml_hd">
+		{% for item in categorys %}
+		<a href="javascript:;" target="_self"{%if loop.first%} class="cur"{%endif%}>{{item}}</a>
+		{% endfor %}
+	</div>
+	{%for item in categorys%}
+	<dl class="ml_list{%if !loop.first%} hidden{%endif%}">
+		<dt>
+			<span class="ml_name">名称</span>
+			<span>涨幅</span>
+			<span class="ml_name">领涨股</span>
+			<span>涨幅</span>
+		</dt>
+		<dd>
+			<i class="ml_ipt">1</i>
+			<a href="#">证券</a>
+			<span class="rise">1.48%</span>
+			<a href="#">国信证券</a>
+			<span class="rise">0.20%</span>
+		</dd>
+		<dd>
+			<i class="ml_ipt">2</i>
+			<a href="#">酒店旅游</a>
+			<span class="rise">0.74%</span>
+			<a href="#">世纪游轮</a>
+			<span class="rise">4.97%</span>
+		</dd>
+		<dd>
+			<i class="ml_ipt">3</i>
+			<a href="#">保险</a>
+			<span class="rise">0.66%</span>
+			<a href="#">中国人寿</a>
+			<span class="fall">-1.53%</span>
+		</dd>
+		<dd>
+			<i>4</i>
+			<a href="#">农业</a>
+			<span class="rise">0.64%</span>
+			<a href="#">丹化科技</a>
+			<span class="fall">-1.99%</span>
+		</dd>
+		<dd>
+			<i>5</i>
+			<a href="#">石油</a>
+			<span class="rise">0.56%</span>
+			<a href="#">盈方微</a>
+			<span class="equal">9.97%</span>
+		</dd>
+		<dd>
+			<i>6</i>
+			<a href="#">电力</a>
+			<span class="rise">0.47%</span>
+			<a href="#">金山股份</a>
+			<span class="rise">-1.35%</span>
+		</dd>
+	</dl>
+	{%endfor%}
+</div>

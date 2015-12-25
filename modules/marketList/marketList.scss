@@ -1,0 +1,54 @@
+@charset "utf-8";
+/*------------------
+Created:2015/12/23
+author:xuxufei
+email:xuxufei@2144.cn
+website:
+-----------------*/
+
+// 主页中的板块行情文件
+
+.market_list{
+	@extend %f12;
+}
+
+.ml_hd{
+	@include Tabs(25%);
+}
+
+.ml_list{
+	dt, dd{
+		@include SingleLine(30px);
+		padding-left: 22px;
+		@extend %pr;
+	}
+	dt span{
+		@extend %c9;
+	}
+	dd{
+		&:nth-child(2n){
+			background: $cgrey2;
+		}
+	}
+	a, span{
+		@extend %fl;
+		@extend %tac;
+		@extend %oh; 
+	}
+	i{
+		@include VerticalMiddle(16px, 16px);
+		background:#90a2c1;
+		@extend %cfff;
+		@extend %tac;
+		@extend %ie6ss;
+	}
+	.ml_ipt{
+		background: $cblue2;
+	}
+	.ml_name, a{
+		width: 60px;
+	}
+	.ml_value, span{
+		width: 54px;
+	}
+}

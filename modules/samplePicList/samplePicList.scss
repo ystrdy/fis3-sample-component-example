@@ -1,0 +1,65 @@
+@charset "utf-8";
+/*------------------
+Created:2015/12/24
+author:xuxufei
+email:xuxufei@2144.cn
+website:
+-----------------*/
+
+// 主页中的专题推荐样式文件
+
+.sp_list{
+	@extend %oh;
+	@extend %pr;
+	width: 250px;
+	@extend %fl;
+	ul{
+		margin-top: -12px;
+		@extend %pr;
+	}
+	li, a{
+		height: 60px;
+		@extend %pr;
+		@extend %oh;
+	}
+	li{
+		margin-top: 12px;
+	}
+	img{
+		width: 75px;
+		height: 60px;
+		@extend %pa;
+		left: 0;
+		top: 0;
+		z-index: 2;
+	}
+	a{
+		padding-left: 85px;
+		@extend %db;
+		background: $cgrey2;
+		@extend %c3;
+		&:hover{
+			@extend %tdn;
+			&, .sp_time{
+				background: $cblue2;
+				@extend %cfff;
+			}
+		}
+	}
+	h4{
+		@extend %f14;
+		line-height: 20px;
+		height: 40px;
+		@extend %oh;
+		margin-top: 9px;
+	}
+	.sp_time{
+		@extend %pa;
+		@extend %f12;
+		@extend %c9;
+		right: 10px;
+		bottom: 10px;
+		background: $cgrey2;
+		padding: 3px 0 3px 32px;
+	}
+}

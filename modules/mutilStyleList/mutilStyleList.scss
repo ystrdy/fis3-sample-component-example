@@ -1,0 +1,57 @@
+@charset "utf-8";
+/*------------------
+Created:2015/12/23
+author:xuxufei
+email:xuxufei@2144.cn
+website:
+-----------------*/
+
+// 多种加重样式的列表 
+
+.ms_list{
+	@extend %f14;
+	margin-right: -10px;
+	li{
+		height: 2em;
+		line-height: 2em;
+		@extend %oh;
+	}
+	a{
+		margin-right: 10px;
+		&, &:hover{
+			@extend %c6;
+		}
+	}
+	.ms_black, .ms_blue, .ms_red{
+		@extend %f16;
+		@extend %fwb;
+	}
+	.ms_big{
+		font-size: 18px;
+	}
+	.ms_black a{
+		&, &:hover{
+			@extend %c3;
+		}
+	}
+	.ms_blue a{
+		&, &:hover{
+			@extend %cblue2;
+		}
+	}
+	.ms_red a{
+		&, &:hover{
+			@extend %cred;
+		}
+	}
+	.ms_live_icon{
+		width: 21px;
+		height: 14px;
+		background: url(./live_icon.png?__sprite) no-repeat center;
+		@extend %fl;
+		margin: 11px 7px 0 0;
+		@extend %oh;
+		_font-size: 0;
+		_line-height: 0;
+	}
+}

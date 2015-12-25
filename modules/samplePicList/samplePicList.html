@@ -1,0 +1,23 @@
+{#
+ # Created:2015/12/24
+ # author:xuxufei
+ # email:xuxufei@2144.cn
+ # description:
+ # 主页中的专题推荐模板文件
+ #}
+
+<div class="sp_list">
+	<h2 class="tit1">专题推荐</h2>
+	<ul>
+		{%set data = [1,2,3,4];%}
+		{%for item in data%}
+		<li>
+			<a href="#">
+				<img src="/temp/temp04.jpg" alt="">
+				<h4>新能源汽车峰会下周召开字数上限</h4>
+				<span class="sp_time">2015-11-10</span>
+			</a>
+		</li>
+		{%endfor%}
+	</ul>
+</div>

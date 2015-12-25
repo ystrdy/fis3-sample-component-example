@@ -8,10 +8,18 @@
 <div class="first_screen">
 	<div class="main">
 		<div class="m_hd">
-			{% include 'modules/focusSlider/focusSlider.html' %}
-			<ul class="news_list"></ul>
+			{% include 'modules/Slider/Slider.html' with {prefix: 'fs', mode: 1, data: [{text: '看我我是新闻我是新闻', image: '/temp/temp01.jpg'},,1]} %}
+			<ul class="ms_list">
+				<li class="ms_big ms_black"><a href="#">年终因素开始发酵 反弹或进入滞涨期致胀</a></li>
+				<li><a href="#">3500点已回踩确认</a><a href="#">指数低开高走难调整</a><a href="#">指数低开</a></li>
+				<li><a href="#">延续两市涨停原因揭秘(直播)</a><a href="#">世界机器人大会将召开</a></li>
+				<li class="ms_big ms_black"><a href="#">直播：周大猜想题材炒作将为主调<i class="ms_live_icon"></i></a></li>
+				<li><a href="#">3500点已回踩确认</a><a href="#">指数低开高走难调整</a><a href="#">指数低开</a></li>
+				<li><a href="#">延续两市涨停原因揭秘(直播)</a><a href="#">世界机器人大会将召开</a></li>
+				<li class="ms_big ms_black"><a href="#">多家020企业收缩规模 告别野蛮扩张时代</a></li>
+			</ul>
 		</div>
-		<div class="m_bd"></div>
+		{% include 'modules/tabCategorys/tabCategorys.html' %}
 	</div>
 	<div class="aside">
 		{% include 'modules/stockMaps/stockMaps.html' %}
@@ -19,6 +27,97 @@
 		{% include 'modules/globalMarket/globalMarket.html' %}
 	</div>
 </div>
+<div class="row_ad"><a href="#"><img src="http://i0.jrjimg.cn/focus/2015/cgds2/test5.gif" alt=""></a></div>
+<div class="row_tit"><h2>股票</h2><i class="rt_block"></i><i class="rt_line"></i></div>
+<div class="wrap">
+	{# 板块行情 #}
+	{% set data = {title: '板块行情', categorys:['行业涨幅', '行业跌幅', '地域涨幅', '地域跌幅']} %}
+	{% include 'modules/marketList/marketList.html' with data %}
+	{# 沪 · 深 #}
+	{% set data = {title: '沪 · 深', status:['ms_black', '', '', 'ms_red', '', '']} %}
+	{% include 'modules/picMutilStyleList/picMutilStyleList.html' with data %}
+	{# 公司 #}
+	{% set data = {title: '公司', status:['ms_blue', '', '', 'ms_black', '', '']} %}
+	{% include 'modules/picMutilStyleList/picMutilStyleList.html' with data %}
+</div>
+<div class="wrap">
+	{# 热点概念 #}
+	{% set data = {title: '热点概念', categorys:['今日热点', '五日热点']} %}
+	{% include 'modules/marketList/marketList.html' with data %}
+	{# 机会 #}
+	{% include 'modules/greyList/greyList.html' with {title: '机会', mode: 1} %}
+</div>
+<div class="wrap">
+	{# 专题推荐 #}
+	{% include 'modules/samplePicList/samplePicList.html' with data %}
+	{# 声音 #}
+	{% set data = {title: '声音', status:['ms_black', '', '', 'ms_red', '', '', 'ms_black']} %}
+	{% include 'modules/picMutilStyleList/picMutilStyleList.html' with data %}
+	{# 新股 #}
+	{% set data = {title: '新股', data:[1,2,3,4,5,6,7,8]} %}
+	{% include 'modules/NewStock/NewStock.html' with data %}
+</div>
+<div class="row_ad ra_ad1"><a href="#"><img src="http://i0.jrjimg.cn/focus/2015/cgds2/test5.gif" alt=""></a></div>
+<div class="row_tit"><h2>投资</h2><i class="rt_block"></i><i class="rt_line"></i></div>
+<div class="wrap">
+	{# AH股比价 #}
+	{% set data = {title: 'AH股比价', data:[1,2,3,4,5,6,7,8]} %}
+	{% include 'modules/AHStock/AHStock.html' with data %}
+	{# 港股 #}
+	{% set data = {title: '港股', status:['ms_black', '', '', 'ms_black', '', '', 'ms_black']} %}
+	{% include 'modules/picMutilStyleList/picMutilStyleList.html' with data %}
+	{# 美股 #}
+	{% set data = {title: '美股', status:['ms_black', '', '', 'ms_blue', '', '', 'ms_black']} %}
+	{% include 'modules/picMutilStyleList/picMutilStyleList.html' with data %}
+</div>
+<div class="wrap">
+	<div class="blk_ad"><a href="#"><img src="/temp/temp05.jpg" alt=""></a></div>
+	{# 基金 #}
+	{% set data = {title: '基金', status:['ms_blue', '', '', 'ms_black', '', '', 'ms_black']} %}
+	{% include 'modules/picMutilStyleList/picMutilStyleList.html' with data %}
+	{# 外汇 · 期货 #}
+	{% set data = {title: '外汇 · 期货', status:['ms_black', '', '', 'ms_black', '', '', 'ms_black']} %}
+	{% include 'modules/picMutilStyleList/picMutilStyleList.html' with data %}
+</div>
+<div class="row_ad ra_ad1"><a href="#"><img src="http://i0.jrjimg.cn/focus/2015/cgds2/test5.gif" alt=""></a></div>
+<div class="row_tit"><h2>生活</h2><i class="rt_block"></i><i class="rt_line"></i></div>
+<div class="wrap">
+	<div class="col250">
+		{# 热门搜索 #}
+		{% include 'modules/HotSearch/HotSearch.html' %}
+		{# 点击排行榜 #}
+		{% include 'modules/TopList/TopList.html' with {title: '点击排行榜', list: [,,,,,,,1]} %}
+		<div class="blk_ad"><a href="#"><img src="/temp/temp05.jpg" alt=""></a></div>
+		<div class="blk_ad"><a href="#"><img src="/temp/temp05.jpg" alt=""></a></div>
+	</div>
+	<div class="col750">
+		<div class="row">
+			{# 消费 #}
+			{% set data = {title: '消费', status:['ms_black', '', '', 'ms_black', '', '']} %}
+			{% include 'modules/picMutilStyleList/picMutilStyleList.html' with data %}
+			{# 理财工具箱 #}
+			{% include 'modules/ManageMoneyToolbox/ManageMoneyToolbox.html' with data %}
+		</div>
+		<div class="row">
+			{# 银行 · 保险 #}
+			{% set data = {title: '银行 · 保险', status:['ms_black', '', '', 'ms_black', '', '']} %}
+			{% include 'modules/picMutilStyleList/picMutilStyleList.html' with data %}
+			{# 理财 #}
+			{% set data = {title: '理财', status:['ms_black', '', '', 'ms_black', '', '']} %}
+			{% include 'modules/picMutilStyleList/picMutilStyleList.html' with data %}
+		</div>
+		{# 房产 #}
+		{% include 'modules/greyList/greyList.html' with {title: '房产', mode: 2} %}
+		{# 汽车 #}
+		{% include 'modules/greyList/greyList.html' with {title: '汽车', mode: 2} %}
+	</div>
+</div>
+<div class="hotspot">
+	<h2 class="tit1">热点</h2>
+	{% include 'modules/Slider/Slider.html' with {prefix: 'hs', mode: 1, data: [{text: '新闻标题', image: '/temp/temp04.jpg'},,,,1]} %}
+</div>
+<div class="row_ad ra_ad2"><a href="#"><img src="http://i0.jrjimg.cn/focus/2015/cgds2/test5.gif" alt=""></a></div>
+{# 友情链接 #}
 {% include 'modules/friendLinks/friendLinks.html' %}
 {% endblock %}
 

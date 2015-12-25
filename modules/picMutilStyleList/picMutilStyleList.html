@@ -1,0 +1,10 @@
+<div class="p_ms_list">
+	<h2 class="tit2">{{title}}<i></i></h2>
+	<a href="#" class="ms_pic"><img src="/temp/temp04.jpg" alt="为何中国互联网公司不需要美国市场？"><span>为何中国互联网公司不需要美国市场？</span></a>
+	{%set list = ['<a href="#">年终因素开始发酵 反弹或进入滞涨期致胀</a>', '<a href="#">3500点已回踩确认</a><a href="#">指数低开高走难调整</a><a href="#">指数低开</a>', '<a href="#">延续两市涨停原因揭秘(直播)</a><a href="#">世界机器人大会将召开</a>', '<a href="#">直播：周大猜想题材炒作将为主调</a>', '<a href="#">3500点已回踩确认</a><a href="#">指数低开高走难调整</a><a href="#">指数低开</a>', '<a href="#">延续两市涨停原因揭秘(直播)</a><a href="#">世界机器人大会将召开</a>', '<a href="#">直播：周大猜想题材炒作将为主调</a>'];%}
+	<ul class="ms_list">
+		{%for item in status%}
+		<li{%if item%} class="{{item}}"{%endif%}>{% autoescape false %}{{list[loop.index0]}}{% endautoescape %}</li>
+		{%endfor%}
+	</ul>
+</div>

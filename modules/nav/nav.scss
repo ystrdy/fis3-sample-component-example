@@ -35,6 +35,7 @@
 	background: url(./sharp.png?__sprite) no-repeat center;
 	bottom: -1px;
 	left: 30px;
+	@extend %atrans;
 	_font-size: 0;
 	_line-height: 0;
 	_bottom: -2px;

@@ -1,0 +1,31 @@
+@charset "utf-8";
+/*------------------
+Created:2015/12/24
+author:xuxufei
+email:xuxufei@2144.cn
+website:
+-----------------*/
+
+// 主页中的点击排行榜样式文件
+
+.tl_list{
+	@extend %f12;
+	@extend %c3;
+	li{
+		@include SingleLine(38px);
+		padding: 0 14px 0 30px;
+		@extend %pr;
+		&:nth-child(2n+1){
+			background: $cgrey2;
+		}
+	}
+	i{
+		@include VerticalMiddle(16px, 16px);
+		background: #90a2c1;
+		@extend %tac;
+		@extend %cfff;
+	}
+	.tl_ipt i{
+		background: $cblue2;
+	}
+}

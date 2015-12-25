@@ -9,7 +9,7 @@ dependencies:
 
 .self_stocks{
 	@extend %oh;
-	margin-top: 10px;
+	@extend %mt20;
 	height: 372px;
 }
 

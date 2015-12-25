@@ -1,0 +1,16 @@
+{#
+ # Created:2015/12/24
+ # author:xuxufei
+ # email:xuxufei@2144.cn
+ # description:
+ # 主页中的点击排行榜模板文件
+ #}
+
+ <div class="top_list">
+ 	<h2 class="tit1">{{title}}</h2>
+ 	<ul class="tl_list">
+ 		{%for item in list%}
+ 		<li{%if loop.index0<3%} class="tl_ipt"{%endif%}><i>{{loop.index}}</i><a href="#">{%if loop.index%2 %}水皮杂谈：习大大50天5次谈股市跟SD{%else%}IPO“老办法”扰动资金面 正在演绎虚{%endif%}</a></li>
+ 		{%endfor%}
+ 	</ul>
+ </div>

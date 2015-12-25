@@ -1,0 +1,27 @@
+{#
+ # Created:2015/12/24
+ # author:xuxufei
+ # email:xuxufei@2144.cn
+ # description:
+ # 主页中的AH股比价模板文件
+ #}
+
+ <div class="ah_stock_list">
+ 	<h2 class="tit1">{{title}}</h2>
+ 	<dl>
+ 		<dt>
+ 			<span>名称</span>
+ 			<span>A股/RMB</span>
+ 			<span>H股/HKD</span>
+ 			<span>比价</span>
+ 		</dt>
+ 		{%for item in data%}
+ 		<dd>
+ 			<a href="#">读者传媒</a>
+ 			<span>14.67</span>
+ 			<span>9.77</span>
+ 			<span>6000</span>
+ 		</dd>
+ 		{%endfor%}
+ 	</dl>
+ </div>

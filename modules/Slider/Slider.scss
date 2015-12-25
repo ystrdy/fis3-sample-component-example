@@ -1,0 +1,146 @@
+@charset "utf-8";
+/*------------------
+Created:2015/12/24
+author:xuxufei
+email:xuxufei@2144.cn
+website:
+-----------------*/
+
+// 主页中的所有滚动图样式文件
+
+/**
+ * 滚动图模式1，主页首屏的焦点图
+ * @param $prefix       焦点图类名的前缀
+ * @param $width:370px  焦点图中项目的宽度
+ * @param $height:210px 焦点图中项目的高度
+ */
+@mixin Slider1($prefix, $width:370px, $height:210px){
+	@extend %fl;
+	@extend %pr;
+	border: solid 1px #e8e8e8;
+	@extend %fl;
+	&, .#{$prefix}_view{
+		width: $width;
+		height: $height;
+		@extend %oh;
+	}
+	.#{$prefix}_cont{
+		@extend %pa;
+		left: 0;
+		top: 0;
+		z-index: 2;
+	}
+	ul{
+		// width: $width * 2;
+		height: $height;
+		@extend %fl;
+	}
+	li{
+		@extend %fl;
+		@extend %pr;
+		h4{
+			width: $width - 15 * 2;
+			height: 30px;
+			line-height: 30px;
+			@extend %oh;
+			@extend %pa;
+			left: 0;
+			bottom: 0;
+			z-index: 8;
+			@extend %cfff;
+			@extend %f12;
+			padding: 0 15px;
+			@include background-opacity($cblack1, 0.5);
+		}
+	}
+	.#{$prefix}_button{
+		@extend %pa;
+		right: 15px;
+		bottom: 11px;
+		z-index: 9;
+		a{
+			width: 14px;
+			height: 8px;
+			@extend %fl;
+			@include background-opacity(#fff, 0.5);
+			margin-left: 4px;
+			_font-size: 0;
+			_line-height: 0;
+		}
+		.cur{
+			background: $cred;
+			filter: '';
+		}
+	}
+}
+
+
+/**
+ * 滚动图模式2，主页中脚部的滚动图
+ * @param $prefix       焦点图类名的前缀
+ * @param $width:170px  焦点图中项目的宽度
+ * @param $height:107px 焦点图中项目的高度
+ * @param $space:15px  	焦点图中每项的间隔距离
+ * @param $count:5		焦点图单屏中显示数量
+ */
+@mixin Slider2($prefix, $width:170px, $height:107px, $space:15px, $count: 5){
+	background: $cblack1;
+	@extend %prywm;
+	padding: 10px 0;
+	@extend %pr;
+	.#{$prefix}_view{
+		@extend %ma;
+		width: ($width + $space) * $count - $space;
+		height: $height;
+		@extend %oh;
+		@extend %pr;
+	}
+	.#{$prefix}_cont{
+		width: 200%;
+		@extend %pa;
+		left: 0;		
+		top: 0;
+	}
+	li, img{
+		width: $width;
+		height: $height;
+	}
+	li{
+		@extend %pr;
+		@extend %oh;
+		margin-right: $space;
+		@extend %fl;
+		h4{
+			@include SingleLine(20px);
+			@extend %pa;
+			left: 0;
+			bottom: 0;
+			@extend %fwn;
+			@extend %cfff;
+			@extend %f12;
+			padding: 0 10px;
+			width: $width - 20px;
+			z-index: 2;
+			@include background-opacity(#000, 0.5);
+		}
+	}
+	.#{$prefix}_direct{
+		a{
+			opacity: 0.7;
+			@extend %atrans;
+			&:hover{
+				opacity: 1;
+			}
+		}
+	}
+	.#{$prefix}_prev{
+		@include VerticalMiddle(12px, 39px);
+		left: 15px;
+		background: url(./hs_prev.png?__sprite) no-repeat center;
+	}
+	.#{$prefix}_next{
+		@include VerticalMiddle(12px, 39px, false);
+		right: 15px;
+		background: url(./hs_next.png?__sprite) no-repeat center;
+	}
+}

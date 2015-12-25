@@ -1,0 +1,26 @@
+{#
+ # Created:2015/12/24
+ # author:xuxufei
+ # email:xuxufei@2144.cn
+ # description:
+ # 主页中的滚动图模板文件
+ #}
+
+{%if mode==1 %}
+<div class="{{prefix}}_slider">
+	<div class="{{prefix}}_view">
+		<div class="{{prefix}}_cont">
+			<ul>
+				{%set text = data[0]['text']%}
+				{%set image = data[0]['image']%}
+				{%for item in data%}
+				<li>
+					<a href="#"><img src="{{image}}" alt="{{text}}{{loop.index}}"></a>
+					<h4>{{text}}{{loop.index}}</h4>
+				</li>
+				{%endfor%}
+			</ul>
+		</div>
+	</div>
+</div>
+{%endif%}

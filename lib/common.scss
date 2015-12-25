@@ -41,47 +41,39 @@ $cgreen : #0d860d;
 		@extend %cgreen;
 	}
 }
+.equal{
+	&, a, a:hover{
+		color: #444;
+	}
+}
 $cgrey1 : #f3f6f8;
 $cgrey2 : #fafafa;
 
-.tabs{
+%ie6ss{
+	_font-size: 0;
+	_line-height: 0;
+}
+
+@mixin SingleLine($height){
+	height: $height;
+	line-height: $height;
 	@extend %oh;
-	@extend %f12;
-	background: $cgrey1;
-	a{
-		@extend %fl;
-		@extend %cblack1;
-		@extend %tac;
-		border-top: solid 1px transparent;
-		@extend %oh;
-		&:hover{
-			@extend %cblack;
-			@extend %tdn;
-		}
-	}
-	.cur{
-		border-top-color: $cblue2;
-		@extend %bgwhite;
-		&, &:hover{
-			@extend %cblue2;
-		}
-	}
 }
 
 @mixin VerticalMiddle($width, $height, $leftAlign:true){
 	@extend %pa;
 	width: $width;
 	height: $height;
+	line-height: $height;
 	top: 50%;
 	@if $leftAlign {
 		left: 0;
 	} @else {
 		right: 0;
 	}
-	margin-top: -$width / 2;
+	margin-top: -$height / 2;
 	z-index: 2;
-	_font-size: 0;
-	_line-height: 0;
+	@extend %ie6ss;
 }
 
 @mixin Tabs($width, $height:36px){
@@ -119,9 +111,94 @@ $cgrey2 : #fafafa;
 }
 
 .tit1{
-	height: 36px;
-	line-height: 36px;
-	@extend %oh;
+	padding-top: 4px;
+	@include SingleLine(36px);
 	@extend %f16;
 	@extend %cblack1;
+}
+
+.tit2{
+	@include SingleLine(40px);
+	@extend %cblack1;
+	@extend %f20;
+	@extend %pr;
+	padding-left: 10px;
+	i{
+		@include VerticalMiddle(2px, 20px);
+		background: $cblue2;
+		margin-top: -8px;
+	}
+}
+
+.row_tit{
+	@extend %prywm;
+	@include SingleLine(60px);
+	margin-top: 10px;
+	@extend %pr;
+	h2{
+		@extend %f20;
+		@extend %cblack1;
+		@extend %fl;
+		margin-left: 14px;
+		padding: 0 10px;
+		@extend %fwn;
+		@extend %pr;
+		z-index: 4;
+		@extend %bgwhite;
+		margin-top: -1px;
+	}
+	.rt_block{
+		@include VerticalMiddle(14px, 14px);
+		background-color: $cblue2;
+		z-index: 3;
+	}
+	.rt_line{
+		@include VerticalMiddle(100%, 14px);
+		background-color: $cgrey1;
+		z-index: 2;
+	}
+}
+
+.row_ad{
+	@extend %ma;
+	@extend %oh;
+	margin-top: 56px;
+	&, img{
+		@extend %pryw;
+		height: 90px;
+	}
+}
+
+.ms_pic{
+	@extend %db;
+	@extend %pr;
+	padding: 0 0 0 115px;
+	@extend %oh;
+	@extend %atrans;
+	&, img{
+		height: 65px;
+	}
+	img{
+		width: 105px;
+		@extend %pa;
+		left: 0;
+		top: 0;
+	}
+	span{
+		@extend %fwb;
+		@extend %f16;
+		line-height: 24px;
+		height: 48px;
+		@extend %oh;
+		@extend %c3;
+		padding: 9px 20px 0 0;
+		@extend %db;
+	}
+	&:hover{
+		@extend %tdn;
+		background: $cblue2;
+		span{
+			@extend %cfff;
+		}
+	}
 }

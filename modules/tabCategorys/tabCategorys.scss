@@ -1,0 +1,76 @@
+@charset "utf-8";
+/*------------------
+Created:2015/12/23
+author:xuxufei
+email:xuxufei@2144.cn
+website:
+-----------------*/
+
+// 主页的大分类
+
+.tab_categorys{
+	@extend %mt20;
+	@extend %oh;
+}
+
+.tc_hd{
+	@include Tabs(20%, 45px);
+	@extend %f16;
+}
+
+.tc_item{
+	height: 110px;
+	@extend %oh;
+	padding-left: 213px;
+	@extend %pr;
+	@extend %mt20;
+	h3{
+		@extend %c3;
+		@extend %f22;
+		@include SingleLine(42px);
+		@extend %pr;
+		padding-left: 41px;
+		i{
+			@extend %cfff;
+			@extend %ie6ss;
+			@extend %tac;
+			@extend %fwn;
+			@extend %f12;
+			@include VerticalMiddle(32px, 18px);
+			@include SingleLine(18px);
+		}
+	}
+	p{
+		@extend %c6;
+		@extend %f14;
+		line-height: 30px;
+		height: 60px;
+		@extend %oh;
+	}
+}
+
+.tci_img{
+	@extend %pa;
+	left: 0;
+	top: 0;
+	&, img{
+		width: 198px;
+		height: 110px;
+	}
+}
+
+.tc_icon_gh{
+	background-color: #ff5f4a;
+}
+
+.tc_icon_sd{
+	background-color: #3398e7;
+}
+
+.tc_icon_bd{
+	background-color: #eeb918;
+}
+
+.tc_icon_gd{
+	background-color: #90a2c1;
+}
