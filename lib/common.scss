@@ -29,7 +29,7 @@ $cred : #ee371f;
 }
 $cgreen : #0d860d;
 %cgreen{
-	color: #0d860d;
+	color: $cgreen;
 }
 .rise{
 	&, a, a:hover{
@@ -110,6 +110,12 @@ $cgrey2 : #fafafa;
 	}
 }
 
+.loading{
+	background-image: url(./loading.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
 .tit1{
 	padding-top: 4px;
 	@include SingleLine(36px);
@@ -146,6 +152,7 @@ $cgrey2 : #fafafa;
 		z-index: 4;
 		@extend %bgwhite;
 		margin-top: -1px;
+		_display:inline;
 	}
 	.rt_block{
 		@include VerticalMiddle(14px, 14px);
@@ -193,6 +200,7 @@ $cgrey2 : #fafafa;
 		@extend %c3;
 		padding: 9px 20px 0 0;
 		@extend %db;
+		@extend %cp;
 	}
 	&:hover{
 		@extend %tdn;

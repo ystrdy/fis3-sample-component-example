@@ -50,11 +50,26 @@ fis.match('/modules/**', {
 fis.hook('commonjs');
 
 // 发布lib
-fis.match('/lib/**', {
-	release : false
-})
 fis.match('/lib/(common).js', {
 	release : 'js/$1'
+});
+// fis.match('/lib/(**).{png,jpg,gif}', {
+// 	release : 'images/$1'
+// });
+fis.match('/lib/(**.png)', {
+	release : 'images/$1'
+});
+fis.match('/lib/(**.jpg)', {
+	release : 'images/$1'
+});
+fis.match('/lib/(**.gif)', {
+	release : 'images/$1'
+});
+fis.match('/lib/(**).scss', {
+	parser : fis.plugin('node-sass'),
+	useSprite: true,
+	rExt : '.css',
+	release : 'css/$1'
 });
 
 // 发布临时数据

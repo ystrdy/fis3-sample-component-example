@@ -23,14 +23,15 @@ website:
 	}
 	dd{
 		@include SingleLine(30px);
-
 		&:nth-child(2n+1){
 			background: $cgrey2;
 		}
 	}
 	span{
+		@extend %cp;
 		@extend %fl;
 		width: 20%;
 		@extend %oh;
+		_width: 19.8%;
 	}
 }

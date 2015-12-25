@@ -46,6 +46,7 @@ dependencies:
 		@extend %fl;
 		width: 60px;
 		@extend %oh;
+		@extend %cp;
 	}
 	span{
 		@extend %fl;
@@ -53,6 +54,7 @@ dependencies:
 		@extend %tar;
 		margin-left: 15px;
 		@extend %oh;
+		@extend %cp;
 	}
 	i{
 		@include VerticalMiddle(9px, 9px, false);

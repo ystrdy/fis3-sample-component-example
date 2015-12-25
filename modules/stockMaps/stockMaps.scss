@@ -1,10 +1,17 @@
+$height : 212px;
+
 .stock_maps{
-	height: 212px;
+	height: $height;
 	@extend %oh;
 }
 
 .sm_hd{
 	@include Tabs(25%);
+}
+
+.sm_bd{
+	height: $height - 36px;
+	@extend %oh;
 }
 
 .smb_meta{
@@ -17,9 +24,4 @@
 		margin: 0 8px;
 		@extend %fwb;
 	}
-}
-
-.smb_draw{
-	height: 140px;
-	@extend %oh;
 }

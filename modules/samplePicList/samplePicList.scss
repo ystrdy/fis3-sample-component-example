@@ -52,11 +52,13 @@ website:
 		height: 40px;
 		@extend %oh;
 		margin-top: 9px;
+		@extend %cp;
 	}
 	.sp_time{
 		@extend %pa;
 		@extend %f12;
 		@extend %c9;
+		@extend %cp;
 		right: 10px;
 		bottom: 10px;
 		background: $cgrey2;

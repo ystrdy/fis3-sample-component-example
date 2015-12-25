@@ -35,9 +35,10 @@ website:
 			@extend %ie6ss;
 			@extend %tac;
 			@extend %fwn;
-			@extend %f12;
 			@include VerticalMiddle(32px, 18px);
 			@include SingleLine(18px);
+			font-size: 12px;
+			_line-height: 20px;
 		}
 	}
 	p{

@@ -24,6 +24,7 @@ website:
 		background: #90a2c1;
 		@extend %tac;
 		@extend %cfff;
+		_font-size: 12px;
 	}
 	.tl_ipt i{
 		background: $cblue2;

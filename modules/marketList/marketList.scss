@@ -26,6 +26,7 @@ website:
 		@extend %c9;
 	}
 	dd{
+		_zoom: 1;
 		&:nth-child(2n){
 			background: $cgrey2;
 		}
@@ -40,7 +41,11 @@ website:
 		background:#90a2c1;
 		@extend %cfff;
 		@extend %tac;
-		@extend %ie6ss;
+		@extend %pa;
+		_position: static;
+		_float: left;
+		_font-size: 12px;
+		_margin: 7px 0 0 -22px;
 	}
 	.ml_ipt{
 		background: $cblue2;

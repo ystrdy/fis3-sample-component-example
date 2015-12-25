@@ -5,13 +5,14 @@
 	@extend %fr;
 	margin-top: 23px;
 	@extend %pr;
-	i{
-		@extend %fl;
-		width: 18px;
-		height: 18px;
-		margin: 7px 8px 0;
-		background: url(./look.png?__sprite) no-repeat center;
-	}
+}
+
+.sb_icon{
+	@extend %fl;
+	width: 18px;
+	height: 18px;
+	margin: 7px 8px 0;
+	background: url(./look.png?__sprite) no-repeat center;
 }
 
 .sb_input{
@@ -39,11 +40,11 @@
 .droplist{
 	@extend %bgwhite;
 	@extend %pa;
+	z-index: 99;
 	left: -1px;
 	top: 33px;
 	border: solid 1px #ddd;
 	width: 100%;
-	height: 273px;
 	@extend %oh;
 	dt{
 		height: 32px;
@@ -69,10 +70,16 @@
 		width: 33.25%;
 		@extend %cp;
 	}
+	i{
+		@extend %cred;
+	}
 	.cur{
 		background: #fff9dd;
 		span{
 			@extend %c3;
 		}
+	}
+	.no_result{
+		@extend %tac;
 	}
 }

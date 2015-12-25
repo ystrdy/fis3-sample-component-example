@@ -27,6 +27,8 @@
 	}
 	ul{
 		@extend %fl;
+		width: 905px;
+		height: 100%;
 		margin-right: -50px;
 		_position: relative;
 	}
