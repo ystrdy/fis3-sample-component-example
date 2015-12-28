@@ -22,6 +22,41 @@ module.exports = exports = {
         text  : '©2258.com'
     },
     /**
+     * 将字符串时间转换为时间戳，若参数不为字符串，则返回当前时间的时间戳
+     * @param  {String} date 时间字符串
+     * @return {Number}      时间戳
+     */
+    convertToTimestamp : function(date){
+        if (typeof date === 'string') {
+            date = date.replace(/-/g, '/');
+            return new Date(date).getTime();
+        } else {
+            return new Date().getTime();
+        }
+    },
+    /**
+     * 获取股票的开盘停盘的时间点
+     * @param  {Boolean} update  是否立即更新时间点
+     * @param  {Date|String} dateTpl 时间模板，用来确定日期
+     * @return {Object}         各个时间点
+     */
+    getPointInTime : function(update, dateTpl){
+        var now = exports.convertToTimestamp.call(this, dateTpl),
+            pit = {
+                am_beginTime : new Date(now),
+                am_endTime : new Date(now),
+                pm_beginTime : new Date(now),
+                pm_endTime : new Date(now)
+            };
+
+        pit.am_beginTime.setHours(9,30,0,0);
+        pit.am_endTime.setHours(11,30,0,0);
+        pit.pm_beginTime.setHours(13,0,0,0);
+        pit.pm_endTime.setHours(15,0,0,0);
+    	
+        return pit;
+    },
+    /**
      * 大盘缩略图的x轴的点
      */
     xTickPositioner : function(){
@@ -39,43 +74,6 @@ module.exports = exports = {
             return d.map(function(value){
                 return value.getTime();
             });
-        }
-    },
-    /**
-     * 获取股票的开盘停盘的时间点
-     * @param  {Boolean} update  是否立即更新时间点
-     * @param  {Date|String} dateTpl 时间模板，用来确定日期
-     * @return {Object}         各个时间点
-     */
-    getPointInTime : function(update, dateTpl){
-        if (update || !this.pit) {
-            var now = exports.convertToTimestamp.call(this, dateTpl),
-                pit = {
-                    am_beginTime : new Date(now),
-                    am_endTime : new Date(now),
-                    pm_beginTime : new Date(now),
-                    pm_endTime : new Date(now)
-                };
-            pit.am_beginTime.setHours(9,30,0,0);
-            pit.am_endTime.setHours(11,30,0,0);
-            pit.pm_beginTime.setHours(13,0,0,0);
-            pit.pm_endTime.setHours(15,0,0,0);
-            return pit;
-        } else {
-            return this.pit;
-        }
-    },
-    /**
-     * 将字符串时间转换为时间戳，若参数不为字符串，则返回当前时间的时间戳
-     * @param  {String} date 时间字符串
-     * @return {Number}      时间戳
-     */
-    convertToTimestamp : function(date){
-        if (typeof date === 'string') {
-            date = date.replace(/-/g, '/');
-            return new Date(date).getTime();
-        } else {
-            return new Date().getTime();
         }
     },
     /**
@@ -160,6 +158,22 @@ module.exports = exports = {
         } else {
             return arguments.callee.call(this, []);
         }
+    },
+    /**
+     * 大盘图的红绿背景
+     */
+    chartBackground : function(){
+        var $container = this.$container,
+            chart = this.chart,
+            $rect = $container.find('svg>rect').last(),
+            x = +$rect.attr('x'),
+            y = +$rect.attr('y'),
+            width = +$rect.attr('width'),
+            height = +$rect.attr('height'),
+            half = height / 2 + 1;
+
+        chart.renderer.rect(x, y, width, half).attr({'fill' : '#feeded'}).add();
+        chart.renderer.rect(x, y+half, width, height-half).attr({'fill' : '#f3fff3'}).add();
     },
 	/**
 	 * 包装url

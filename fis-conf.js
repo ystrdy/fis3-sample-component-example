@@ -120,6 +120,8 @@ fis.match('::package', {
 		// 合并文件
 		files.forEach(function(file){
 			var content = file.getContent(),
+				modContent = null,
+				jqContent = null,
 				deps = getDependencies(file.id).sort(function(a, b){
 					if (a.isMod && !b.isMod) {
 						return 1;
@@ -134,9 +136,18 @@ fis.match('::package', {
 						var reg = eval('/\\brequire\\([\'"].*?'+file.filename+'(|\\'+file.ext+')[\'"]\\),?;?\\r?\\n?/ig');
 						content = content.replace(reg, '');
 					}
+					if (file.filename == 'mod') {
+						modContent = file.getContent();
+						return '';
+					}
+					if (~file.filename.toLowerCase().indexOf('jquery')) {
+						jqContent = file.getContent();
+						return '';
+					}
 					return file.getContent();
 				});
 			deps.push(content);
+			deps.unshift(modContent, jqContent);
 			file.setContent(deps.join('\n'));
 /*			var deps = getDependencies(file.id),
 				content = file.getContent(),

@@ -27,6 +27,9 @@ var StockMap = function(options){
     this.symbols = [];
     this.chart = null;
     this.last_close = 0;
+    this.tId = -1;
+    this.interval = 2 * 1000;
+    this.seriesData = {};
 
     this.init();
 };
@@ -68,10 +71,61 @@ StockMap.prototype = {
                 useUTC: false
             }
         });
+
+        // 重载Highcharts的方法
+        var override = require('/modules/HighchartsOverride/HighchartsOverride');
+        override({
+           'Tick.prototype.render' : function(index, old, opacity){
+                var coll = this.axis.coll,
+                    pos = this.pos;
+                // 修正x轴
+                if (coll === "xAxis") {
+                    if (this.isFirst || this.isLast) {
+                        this.axis.options.gridLineWidth = 0;
+                    } else {
+                        this.axis.options.gridLineWidth = 1;
+                    }
+                }
+                // 修正y轴
+                if (coll === "yAxis" && typeof pos === 'number' && !isNaN(pos)) {
+                    var tickPositions = this.axis.tickPositions,
+                        midVal = tickPositions[Math.floor(tickPositions.length/2)],
+                        label = this.label;
+                    // 昨收线
+                    if (pos === midVal) {
+                        this.axis.options.gridLineDashStyle = 'Solid';
+                        this.axis.options.gridLineColor = '#ee371f';
+                    } else {
+                        this.axis.options.gridLineDashStyle = 'ShortDash';
+                        this.axis.options.gridLineColor = '#e8e8e8';
+                    }
+                    // y轴的labels
+                    label.css({
+                        color : pos > midVal ? _.riseColor : pos < midVal ? _.fallColor : _.equalColor
+                    });
+                    // y轴第一根和最后一根网格线
+                    if (this.isFirst || this.isLast) {
+                        this.axis.options.gridLineWidth = 0;
+                    } else {
+                        this.axis.options.gridLineWidth = 1;
+                    }
+                }
+
+                this._super.apply(this, arguments);     // 调用重载前的方法
+            }
+        });
+
         new Highcharts.StockChart(this.getConfig(), function(chart){
             self.chart = chart;
             chart.showLoading('加载中...');
             self.update(0);
+        });
+
+        // 切换
+        $container.on('click', '.sm_hd a:not(.cur)', function(event){
+            $(this).addClass('cur').siblings().removeClass('cur');
+            self.update($(this).index());
+            event.preventDefault();
         });
     },
     update : function(index){
@@ -83,7 +137,7 @@ StockMap.prototype = {
         $.ajax(url).done(function(data){
             data = JSON.parse(data);
             self.updateMeta(data.base);
-            self.updateChart(data);
+            self.updateSeries(data);
         });
     },
     updateMeta : function(base){
@@ -124,18 +178,97 @@ StockMap.prototype = {
             // 不处理
         }
     },
-    updateChart : function(ajaxData){
+    updateSeries : function(ajaxData){
         var base = ajaxData.base,
             data = ajaxData.data,
             chart = this.chart,
-            seriesData = _.parseData(data);
+            seriesData = this.seriesData = _.parseData(data);
 
         this.last_close = +base.last_close;
         chart.series[0].update({
             name : base.name,
             data : _.makeDrawingArray(seriesData)
         });
+        _.chartBackground.call(this);
         chart.hideLoading();
+
+        // 实时更新
+        this.updateReal(ajaxData);
+    },
+    updateReal : function(ajaxData){
+        var self = this,
+            fn = function(){
+                $.ajax( _.wrapUrl({
+                    uri : '/api/base/'+ajaxData.base.symbol,
+                    isTimestamp : true
+                })).done(function(ajaxData){
+                    ajaxData = JSON.parse(ajaxData);
+                    try{
+                        var seriesData = self.seriesData,
+                            tt, item;
+                        tt = new Date(ajaxData.time.replace(/-/g, '/'));
+                        tt.setSeconds(0, 0);
+                        tt = tt.getTime();
+                        item = seriesData[tt];
+                        if (item && typeof item.index === 'number') {
+                            self.seriesData[tt].current = +ajaxData.current;
+                            // 实时更新线
+                            self.chart.series[0].data[item.index].update({
+                                x : tt,
+                                y : +ajaxData.current
+                            });
+                            // 实时更新market
+                            self.updateMarket(ajaxData);
+                            // 实时更新图上面的简要信息
+                            self.updateMeta(ajaxData);
+                        }
+                    } catch(e){
+                        // 没有找到点，不做处理
+                    }
+                });
+            };
+        clearInterval(this.tId);
+        fn();
+        this.tId = setInterval(fn, this.interval);
+    },
+    updateMarket : function(){
+        var marker = this.marker,
+            $c = this.$container,
+            $hs = $c.find('.highcharts-series'),
+            $path = $hs.find('path').first(),
+            pit = _.getPointInTime(),
+            d, split, point;
+
+        if (!this.marker) {
+            marker = this.marker = this.chart.renderer.circle(0, 0, 3).attr({
+                fill: Highcharts.getOptions().colors[0],
+                'class': 'highcharts-circle',
+                zIndex : 7,
+                transform : $hs.attr('transform')
+            }).add();
+        }
+
+        // 价格线存在
+        if ($path.length) {
+            d = $path.attr('d');
+            split = d.split(' ');
+            if (split.length > 2) {
+                split = split.slice(-2);
+                point = {
+                    x : +split[0],
+                    y : +split[1]
+                };
+                // 更新图上点的位置
+                marker.attr(point);
+            }
+        }
+
+        // 指定时间不显示
+        now = new Date();
+        if (now > pit.am_endTime && now < pit.pm_beginTime || now > pit.pm_endTime) {
+            marker.destroy();
+            this.marker = null;
+        }
     },
     getConfig : function(){
         var self = this,

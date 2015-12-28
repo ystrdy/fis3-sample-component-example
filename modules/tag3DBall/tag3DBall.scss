@@ -1,0 +1,60 @@
+@charset "utf-8";
+/*------------------
+Created:2015/12/24
+author:xuxufei
+email:xuxufei@2144.cn
+website:
+-----------------*/
+
+// 主页中的热门搜索样式文件
+
+.tag_3d_ball{
+	@extend %pr;
+	height: 216px;
+	a{
+		@extend %cfff;
+		@extend %pa;
+		border-radius: 3px;
+		left: 0;
+		top: 0;
+		padding: 3px 6px;
+		&:hover{
+			@extend %tdn;
+		}
+	}
+}
+
+.t3b_c1{
+	background: $cblue2;
+	&:hover{
+		background: lighten($cblue2, 10%);
+	}
+}
+
+.t3b_c2{
+	background: $cred;
+	&:hover{
+		background: lighten($cred, 10%);
+	}
+}
+
+.t3b_c3{
+	background: $cblue1;
+	&:hover{
+		background: lighten($cblue1, 10%);
+	}
+}
+
+.t3b_c4{
+	background: $cblack1;
+	&:hover{
+		background: lighten($cblack1, 10%);
+	}
+}
+
+.t3b_c5{
+	background: $cgreen;
+	&:hover{
+		background: lighten($cgreen, 10%);
+	}
+}

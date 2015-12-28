@@ -16,6 +16,13 @@ Slider({
 	isButton : false
 });
 
+// 大盘图
+require('/modules/StockMaps/StockMaps')({
+	container : '.stock_maps'
+});
+
 require('/modules/tabCategorys/tabCategorys')();
 require('/modules/globalMarket/globalMarket')();
 require('/modules/marketList/marketList')();
+
+require('/modules/tag3DBall/tag3DBall')('tag_3d_ball');
