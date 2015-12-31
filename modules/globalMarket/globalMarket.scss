@@ -24,7 +24,6 @@ dependencies:
 		line-height: 42px;
 		@extend %oh;
 		padding: 0 10px;
-		@extend %cp;
 		&:nth-child(2n){
 			background: $cgrey2;
 		}
@@ -43,6 +42,7 @@ dependencies:
 		height: 163px;
 	}
 	.hasImage{
+		@extend %cp;
 		.gml_name{
 			@extend %cblue1;
 		}

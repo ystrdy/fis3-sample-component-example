@@ -1,4 +1,5 @@
 require('/modules/Compartibility/Compartibility'); 	// 处理兼容性
+var Cookie = require('/modules/Cookie/Cookie');
 
 module.exports = exports = {
 	// 一些公用数据
@@ -186,9 +187,11 @@ module.exports = exports = {
 		} else {
 			options = $.extend({
 				uri : '',
+				site : '',
 				isTimestamp : false
 			}, options || {});
 			uri = options.uri;
+			site = options.site || site;
 		}
 		uri.indexOf('/') && (uri = '/'+uri);
 		url = site + uri;
@@ -207,11 +210,58 @@ module.exports = exports = {
 	render : function(property, tpl){
 		var _tpl = tpl;
 		Object.keys(property).forEach(function(key){
-			_tpl = _tpl.replace('@'+key+'@', property[key]);
+			_tpl = _tpl.replace(eval('/@'+key+'@/g'), property[key]);
 		});
 		return _tpl;
 	},
-	extend : $.extend
+	extend : $.extend,
+	error : function(){
+		if (console && typeof console.error === 'function') {
+			console.error.apply(console, arguments);
+		}
+	},
+	/**
+	 * 个股访问历史
+	 */
+	history : (function(){
+		var name = 'last_visit_history';
+		return {
+	        get : function(){
+	            var cookieData = Cookie.get(name) || '';
+	            return cookieData.split('|').filter(function(value){
+	                return !!value;
+	            });
+	        },
+	        set : function(symbol){
+	            if (!symbol) {
+	                return;
+	            }
+	            var split = this.get();
+	            if (split.indexOf(symbol) != -1) {
+	                return;
+	            }
+	            split.unshift(symbol+'');
+	            if (split.length > 10) {
+	                split = split.slice(-10);
+	            }
+	            Cookie.set(name, split.join('|'));
+	        },
+	        del : function(symbol){
+	            if (!symbol) {
+	                return;
+	            }
+	            var split = this.get();
+	            split = split.filter(function(value){
+	                return value!=symbol;
+	            });
+	            Cookie.set(name, split.join('|'));
+	        },
+	        clear : function(){
+	            Cookie.set(name, '');
+	        }
+		};
+	})(),
+	Cookie : Cookie
 };
 
 // var _ = require('/modules/util/util');

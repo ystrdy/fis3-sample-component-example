@@ -64,7 +64,7 @@ var symbols = {},
                 });
                 return result;
             } else {
-                arguments.callee.call(this, [s+'']);
+                return arguments.callee.call(this, [s+'']);
             }
         },
         // 利用参数立即发起一次实时请求
@@ -75,7 +75,7 @@ var symbols = {},
                     isTimestamp : true
                 }));
             } else {
-                arguments.callee.call(this, [s+'']);
+                return arguments.callee.call(this, [s+'']);
             }
         }
     };

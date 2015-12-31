@@ -2,20 +2,20 @@ var rdp = require('/modules/RealDataPool/RealDataPool'),
 	_ = require('/modules/util/util');
 
 var stocks = [{
-		name : '创业板指',
-		symbol : 'sz399006'
-	}, {
 		name : '上证指数',
 		symbol : 'sh000001'
-	}, {
-		name : '沪深300',
-		symbol : 'sh000300'
 	}, {
 		name : '深证成指',
 		symbol : 'sz399001'
 	}, {
 		name : '中小板指',
 		symbol : 'sz399005'
+	}, {
+		name : '创业板指',
+		symbol : 'sz399006'
+	}, {
+		name : '沪深300',
+		symbol : 'sh000300'
 	}],
 	symbols = stocks.map(function(item){
 		return item.symbol

@@ -16,6 +16,7 @@ website:
 .tc_hd{
 	@include Tabs(20%, 45px);
 	@extend %f16;
+	@extend %fwb;
 }
 
 .tc_item{
@@ -42,11 +43,13 @@ website:
 		}
 	}
 	p{
-		@extend %c6;
 		@extend %f14;
 		line-height: 30px;
 		height: 60px;
 		@extend %oh;
+		a{
+			@extend %c6;
+		}
 	}
 }
 

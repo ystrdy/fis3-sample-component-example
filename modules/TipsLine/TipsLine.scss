@@ -1,0 +1,30 @@
+@charset "utf-8";
+/*------------------
+Created:2015/12/31
+author:xuxufei
+email:xuxufei@2144.cn
+website:
+-----------------*/
+
+// 顶部一行提示信息
+
+.tips_line{
+	@extend %pa;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 24px;
+	line-height: 24px;
+	@extend %oh;
+	@extend %tac;
+	color: #eb7350;
+	background: #fcf7e1;
+	z-index: 99;
+	i{
+		@extend %pa;
+		right: 10px;
+		@extend %c6;
+		@extend %cp;
+		@extend %fwb;
+	}
+}

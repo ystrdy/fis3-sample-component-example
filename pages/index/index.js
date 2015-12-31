@@ -22,6 +22,7 @@ require('/modules/StockMaps/StockMaps')({
 });
 
 require('/modules/tabCategorys/tabCategorys')();
+require('/modules/selfStocks/selfStocks')();
 require('/modules/globalMarket/globalMarket')();
 require('/modules/marketList/marketList')();
 

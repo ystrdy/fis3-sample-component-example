@@ -11,6 +11,10 @@ dependencies:
 	@extend %oh;
 	@extend %mt20;
 	height: 372px;
+	@extend %pr;
+	.tips_line{
+		top: 36px;
+	}
 }
 
 .ss_head{
